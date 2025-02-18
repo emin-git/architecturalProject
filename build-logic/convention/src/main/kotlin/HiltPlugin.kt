@@ -8,8 +8,8 @@ class HiltPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
-            val hiltAndroid = libs.findLibrary("dagger.hilt.android").get()
-            val hiltCompiler = libs.findLibrary("dagger.hilt.compiler").get()
+            val hiltAndroid = libs.findLibrary("hilt").get()
+            val hiltCompiler = libs.findLibrary("hilt.compiler").get()
 
             with(pluginManager) {
                 apply("com.google.dagger.hilt.android")

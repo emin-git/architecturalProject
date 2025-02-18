@@ -9,9 +9,9 @@ class FirebasePlugin : Plugin<Project> {
         with(target) {
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
             val firebaseBom = libs.findLibrary("firebase-bom").get()
-            val analytics = libs.findLibrary("firebase.analytics").get().toString()
-            val crashlytics = libs.findLibrary("firebase.crashlytics").get().toString()
-            val pref = libs.findLibrary("firebase.perf").get().toString()
+            val analytics = libs.findLibrary("firebase.analytics").get()
+            val crashlytics = libs.findLibrary("firebase.crashlytics").get()
+            val pref = libs.findLibrary("firebase.perf").get()
 
             with(pluginManager) {
                 apply("com.google.gms.google-services")
@@ -20,9 +20,9 @@ class FirebasePlugin : Plugin<Project> {
 
             dependencies {
                 add("implementation", platform(firebaseBom))
-                "implementation"(libs.findLibrary(analytics).get())
-                "implementation"(libs.findLibrary(crashlytics).get())
-                "implementation"(libs.findLibrary(pref).get())
+                "implementation"(analytics)
+                "implementation"(crashlytics)
+                "implementation"(pref)
             }
         }
     }

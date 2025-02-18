@@ -9,7 +9,15 @@ dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hi
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
 kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+gms = { id = "com.google.gms.google-services", version.ref = "firebaseGmsPlugin" }
 
+#Plugins
+plugin-application = { id = "dev.emin.application" }
+plugin-firebase = { id = "dev.emin.firebase" }
+plugin-hilt = { id = "dev.emin.hilt" }
+plugin-library = { id = "dev.emin.library" }
+plugin-ui-library = { id = "dev.emin.ui.library" }
 
 [versions]
 
@@ -53,6 +61,11 @@ androidxDataStore = "1.1.2"
 firebaseBom = "33.9.0"
 firebaseCrashlyticsPlugin = "3.0.3"
 firebasePerfPlugin = "1.4.2"
+firebaseGmsPlugin = "4.4.2"
+
+# Oss
+googleOss = "17.1.0"
+googleOssPlugin = "0.10.6"
 
 # WorkManeger
 workManager = "2.10.0"
@@ -101,7 +114,9 @@ googlePlayMaps = "18.1.0"
 googlePlayLocation = "21.1.0"
 
 # Sdk
-
+minSdk = "24"
+compileSdk = "35"
+targetSdk = "35"
 
 # Gradle
 kotlinOptIn = "-opt-in=kotlin.RequiresOptIn"
@@ -111,15 +126,9 @@ enableCompose = "enableComposeCompilerMetrics"
 metricCompose = "compose-metrics"
 enableComCompiler = "enableComposeCompilerReports"
 composeReports = "compose-reports"
-hiltAndroid = "dagger.hilt.android"
 hiltCompiler = "dagger.hilt.compiler"
 
-#Plugins
-plugin-application = { id = "emin.application" }
-plugin-firebase = { id = "emin.firebase" }
-plugin-hilt = { id = "emin.dagger.hilt" }
-plugin-library = { id = "emin.library" }
-plugin-ui-library = { id = "emin.ui.library" }
+jetbrainsKotlinJvm = "1.9.24"
 
 [libraries]
 
@@ -201,7 +210,7 @@ koin_compose = { group = "io.insert-koin", name = "koin-androidx-compose", versi
 
 # Hilt
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
-dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
@@ -247,6 +256,11 @@ security-crypto = { group = "androidx.security", name = "security-crypto", versi
 # GooglePlay
 google-play-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "googlePlayMaps" }
 google-play-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "googlePlayLocation" }
+
+# Oss
+oss-licenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version.ref = "googleOss" }
+oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-licenses-plugin", version.ref = "googleOssPlugin" }
+
 
 # ZXing
 zxing = { group = "com.google.zxing", name = "core", version.ref = "zXing" }

@@ -25,6 +25,30 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/convention" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/common" />
+            <option value="$PROJECT_DIR$/core/database" />
+            <option value="$PROJECT_DIR$/core/model" />
+            <option value="$PROJECT_DIR$/core/network" />
+            <option value="$PROJECT_DIR$/core/utils" />
+            <option value="$PROJECT_DIR$/di" />
+            <option value="$PROJECT_DIR$/di/database" />
+            <option value="$PROJECT_DIR$/di/network" />
+            <option value="$PROJECT_DIR$/di/presentation" />
+            <option value="$PROJECT_DIR$/di/repository" />
+            <option value="$PROJECT_DIR$/di/usecase" />
+            <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/domain/interactor" />
+            <option value="$PROJECT_DIR$/domain/repository" />
+            <option value="$PROJECT_DIR$/domain/usecase" />
+            <option value="$PROJECT_DIR$/presentation" />
+            <option value="$PROJECT_DIR$/presentation/basefeature" />
+            <option value="$PROJECT_DIR$/presentation/settingsfeature" />
+            <option value="$PROJECT_DIR$/testing" />
+            <option value="$PROJECT_DIR$/testing/fake" />
+            <option value="$PROJECT_DIR$/testing/helper" />
+            <option value="$PROJECT_DIR$/testing/mock" />
+            <option value="$PROJECT_DIR$/testing/rules" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

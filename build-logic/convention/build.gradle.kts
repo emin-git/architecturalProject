@@ -7,7 +7,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "emin.build.logic"
+group = "dev.emin.build.logic"
 
 val javaVersion = libs.versions.java.get().toInt()
 
@@ -31,23 +31,23 @@ dependencies {
 gradlePlugin {
     plugins {
         register("application") {
-            id = "emin.application"
+            id = "dev.emin.application"
             implementationClass = "ApplicationPlugin"
         }
         register("firebase") {
-            id = "emin.firebase"
+            id = "dev.emin.firebase"
             implementationClass = "FirebasePlugin"
         }
         register("hilt") {
-            id = "emin.dagger.hilt"
-            implementationClass = "DaggerHiltPlugin"
+            id = "dev.emin.hilt"
+            implementationClass = "HiltPlugin"
         }
         register("library") {
-            id = "emin.library"
+            id = "dev.emin.library"
             implementationClass = "LibraryPlugin"
         }
         register("uiLibrary") {
-            id = "emin.ui.library"
+            id = "dev.emin.ui.library"
             implementationClass = "UiLibraryPlugin"
         }
     }
