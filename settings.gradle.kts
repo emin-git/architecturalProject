@@ -1,3 +1,5 @@
+import java.net.URI
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -26,6 +28,17 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+buildCache {
+    local {
+        isEnabled = true
+    }
+    remote(HttpBuildCache::class.java) {
+        url = URI("https://cache.example.com/")
+        isPush = true
+    }
+}
+
 rootProject.name = "ArchitecturalProject"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
@@ -55,3 +68,4 @@ include(":testing:rules")
 include(":presentation")
 include(":presentation:basefeature")
 include(":presentation:settingsfeature")
+include(":core:ui")

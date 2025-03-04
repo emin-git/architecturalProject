@@ -1,12 +1,25 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     alias(libs.plugins.plugin.library)
     alias(libs.plugins.plugin.hilt)
 }
 
 android {
-    namespace = "dev.emin.core.database"
+    buildFeatures {
+        buildConfig = true
+    }
+    defaultConfig {
+        consumerProguardFiles("consumer-rules.pro")
+    }
+    namespace = "com.emin.core.database"
 }
 
-dependencies{
+dependencies {
+    moduleCoreCommon()
 
+    project.let {
+        room(it)
+    }
+    ksp(libs.room.compiler)
 }

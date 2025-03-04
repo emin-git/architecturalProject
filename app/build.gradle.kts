@@ -15,22 +15,22 @@ plugins {
 }
 
 android {
-    val majorUpdateVersion = 1
-    val minorUpdateVersion = 0
-    val patchVersion = 0
+    val majorUpdateVersion = DefaultConfig.MajorVersion
+    val minorUpdateVersion = DefaultConfig.MinorVersion
+    val patchVersion = DefaultConfig.PatchVersion
 
-    val mVersionCode = majorUpdateVersion.times(10_000)
-        .plus(minorUpdateVersion.times(100))
+    val mVersionCode = majorUpdateVersion.times(LocalConstants.MajorVersionTime)
+        .plus(minorUpdateVersion.times(LocalConstants.MinorVersionTime))
         .plus(patchVersion)
 
     val mVersionName = "$majorUpdateVersion.$minorUpdateVersion.$patchVersion"
-    val formatter = DateTimeFormatter.ofPattern("yyyy_MM_dd_hh_mm_a")
+    val formatter = DateTimeFormatter.ofPattern(LocalConstants.OffPattern)
     val currentTime = LocalDateTime.now().format(formatter)
 
     defaultConfig {
         versionCode = mVersionCode
         versionName = mVersionName
-        applicationId = "dev.emin.compose"
+        applicationId = DefaultConfig.Project
     }
 
     signingConfigs {
@@ -80,8 +80,15 @@ android {
         buildConfig = true
     }
 
-    namespace = "dev.emin.compose"
+    namespace = DefaultConfig.Project
 }
 
 dependencies {
+    modulePresentationSettingsFeature()
+    project.let {
+        compose(it)
+        androidX(it)
+        retrofit(it)
+        hilt(it)
+    }
 }
