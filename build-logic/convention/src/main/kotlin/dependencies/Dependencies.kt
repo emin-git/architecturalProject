@@ -4,7 +4,7 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.getByType
 
 object DefaultConfig {
-    const val Project = "com.emin.customplugin"
+    const val Project = "com.emin.architecturalproject"
     const val MajorVersion = 1
     const val MinorVersion = 0
     const val PatchVersion = 0

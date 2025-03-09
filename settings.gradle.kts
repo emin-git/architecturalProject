@@ -34,8 +34,10 @@ buildCache {
         isEnabled = true
     }
     remote(HttpBuildCache::class.java) {
-        url = URI("https://cache.example.com/")
+        url = URI("http://www.omdbapi.com/")
         isPush = true
+        isAllowInsecureProtocol = true
+        // https server a baglanmak istediginde isAllowInsecureProtocol bunu kaldır ve url i yenile
     }
 }
 

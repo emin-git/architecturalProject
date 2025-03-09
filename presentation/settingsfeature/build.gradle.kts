@@ -29,4 +29,5 @@ dependencies {
     moduleCoreModel()
     moduleDomainUseCase()
     moduleDomainRepository()
+    modulePresentationBaseFeature()
 }

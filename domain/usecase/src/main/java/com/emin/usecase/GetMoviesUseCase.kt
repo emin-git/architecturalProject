@@ -1,32 +1,33 @@
 package com.emin.usecase
 
-import android.net.http.HttpException
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresExtension
 import com.emin.common.utils.Resource
 import com.emin.model.Movie
 import com.emin.model.dto.toMovieList
-import com.emin.repository.MovieRepository
+import com.emin.network.data.MovieDataSource
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.io.IOError
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class GetMoviesUseCase @Inject constructor(private val repository: MovieRepository) {
+
+class GetMoviesUseCase @Inject constructor(private val movieDataSource: MovieDataSource) {
+    @SuppressLint("SupportAnnotationUsage")
     @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     fun executeGetMovies(search: String) : Flow<Resource<List<Movie>>> = flow {
+        emit(Resource.Loading())
         try {
-            emit(Resource.Loading())
-            val movieList = repository.getMovies(search)
-            if(movieList.Response.equals("True")) {
-                emit(Resource.Success(movieList.toMovieList()))
+            val moviesDto = movieDataSource.getMovies(search)
+            if (moviesDto.Response == "True") {
+                emit(Resource.Success(moviesDto.toMovieList()))
             } else {
-                emit(Resource.Error(message = "No movie found"))
+                emit(Resource.Error(error = Exception("No movies found")))
             }
-        } catch (e: HttpException) {
-            emit(Resource.Error(message = e.localizedMessage ?: "Error!"))
-        } catch (e: IOError) {
-            emit(Resource.Error(message = "Could not reach internet"))
+        } catch (e: Exception) {
+            emit(Resource.Error(error = e))
         }
-    }
+    }.flowOn(Dispatchers.IO)
 }

@@ -1,7 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    alias(libs.plugins.plugin.library)
+    alias(libs.plugins.plugin.ui.library)
     alias(libs.plugins.plugin.hilt)
 }
 
@@ -13,6 +13,17 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
     namespace = "com.emin.presentation.basefeature"
+    packagingOptions {
+        resources.excludes.add("META-INF/gradle/incremental.annotation.processors")
+    }
 }
 
-dependencies {}
+dependencies {
+    implementation(libs.androidx.foundation.layout.android)
+    moduleCoreModel()
+    project.let {
+        compose(it)
+        hilt(it)
+        coil(it)
+    }
+}

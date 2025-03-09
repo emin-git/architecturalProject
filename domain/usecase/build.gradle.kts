@@ -19,4 +19,5 @@ dependencies {
     moduleCoreCommon()
     moduleDomainRepository()
     moduleCoreModel()
+    moduleCoreNetwork()
 }
