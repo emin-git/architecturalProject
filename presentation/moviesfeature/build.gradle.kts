@@ -12,22 +12,18 @@ android {
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
     }
-    namespace = "com.emin.presentation.settingsfeature"
+    namespace = "com.emin.presentation.moviesfeature"
     packagingOptions {
         resources.excludes.add("META-INF/gradle/incremental.annotation.processors")
     }
 }
 
 dependencies {
-    implementation(project(":domain:repository"))
-    implementation(project(":core:network"))
     project.let {
         compose(it)
         hilt(it)
     }
-    moduleCoreCommon()
-    moduleCoreModel()
-    moduleDomainUseCase()
-    moduleDomainRepository()
+    moduleCore()
+    moduleDomain()
     modulePresentationBaseFeature()
 }

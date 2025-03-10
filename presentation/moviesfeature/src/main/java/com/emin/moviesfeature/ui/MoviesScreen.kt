@@ -1,4 +1,3 @@
-
 import android.os.Build
 import androidx.annotation.RequiresExtension
 import androidx.compose.foundation.background
@@ -20,19 +19,22 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.emin.basefeature.MovieListRow
-import com.emin.settingsfeature.viewmodel.MoviesEvent
-import com.emin.settingsfeature.viewmodel.SettingsViewModel
+import com.emin.moviesfeature.viewmodel.MoviesEvent
+import com.emin.moviesfeature.viewmodel.MoviesViewModel
 
 @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @Composable
-fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
-    val state = viewModel.state.value
+fun MoviesScreen(viewModel: MoviesViewModel = hiltViewModel()) {
+    val state by viewModel.moviesUiState.collectAsStateWithLifecycle()
 
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.White)
-        .testTag("MSBox")) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+            .testTag("MSBox")
+    ) {
 
         Column {
             MovieSearchBar(modifier = Modifier
@@ -44,16 +46,19 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
                 }
             )
 
-            LazyColumn(modifier = Modifier.fillMaxSize().testTag("MSLazyColumn")) {
-                items(state.movies) { movie ->
+            LazyColumn(modifier = Modifier
+                .fillMaxSize()
+                .testTag("MSLazyColumn")) {
+                items(state.data ?: emptyList()) { movie ->
                     MovieListRow(movie = movie, onItemClick = {
                     })
                 }
             }
         }
 
-        if (state.error.isNotBlank()) {
-            Text(text = state.error,
+        state.error.peekContent()?.message?.let { it1 ->
+            Text(
+                text = it1,
                 color = MaterialTheme.colorScheme.error,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
@@ -63,15 +68,17 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
             )
         }
 
-        if(state.isLoading) {
+
+        if (state.loading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
     }
 
 }
+
 @Composable
 fun MovieSearchBar(
-    modifier : Modifier,
+    modifier: Modifier,
     hint: String = "",
     onSearch: (String) -> Unit = {}
 ) {
@@ -89,14 +96,13 @@ fun MovieSearchBar(
                 onSearch(text)
             }),
             onValueChange = {
-                text =it
+                text = it
             },
             maxLines = 1,
             singleLine = true,
             textStyle = TextStyle(color = Color.Black),
             shape = RoundedCornerShape(12.dp),
-            colors = TextFieldDefaults.colors(Color.White)
-            ,
+            colors = TextFieldDefaults.colors(Color.White),
             modifier = Modifier
                 .fillMaxWidth()
                 .shadow(5.dp, CircleShape)
@@ -106,7 +112,7 @@ fun MovieSearchBar(
                     isHintDisplayed = it.isFocused != true && text.isEmpty()
                 }
         )
-        if(isHintDisplayed) {
+        if (isHintDisplayed) {
             Text(
                 text = hint,
                 color = Color.LightGray,

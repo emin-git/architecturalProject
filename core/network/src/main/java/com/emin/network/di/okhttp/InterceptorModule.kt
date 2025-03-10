@@ -1,5 +1,6 @@
 package com.emin.network.di.okhttp
 
+import android.util.Log
 import com.emin.core.network.BuildConfig
 import dagger.Module
 import dagger.Provides
@@ -15,11 +16,13 @@ object InterceptorModule {
     @Provides
     @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor { message ->
-        }.apply {
+        return HttpLoggingInterceptor( { message ->
+            Log.d("OkHttp", message)
+        }).apply {
             if (BuildConfig.DEBUG) {
                 setLevel(HttpLoggingInterceptor.Level.BODY)
             }
         }
     }
 }
+

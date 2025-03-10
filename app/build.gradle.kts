@@ -84,7 +84,7 @@ android {
 }
 
 dependencies {
-    modulePresentationSettingsFeature()
+    modulePresentationMoviesFeature()
     project.let {
         compose(it)
         androidX(it)

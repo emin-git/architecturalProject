@@ -1,11 +1,12 @@
 package com.emin.architecturalproject
 
-import SettingsScreen
+import MoviesScreen
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresExtension
+import com.emin.architecturalproject.navigation.NavHost
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -15,7 +16,7 @@ class MainActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent{
-            SettingsScreen()
+            NavHost()
         }
     }
 }

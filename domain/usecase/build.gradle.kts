@@ -16,8 +16,6 @@ android {
 }
 
 dependencies {
-    moduleCoreCommon()
+    moduleCore()
     moduleDomainRepository()
-    moduleCoreModel()
-    moduleCoreNetwork()
 }

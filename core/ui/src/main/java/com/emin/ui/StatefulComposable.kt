@@ -7,13 +7,13 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 data class UiState<T : Any>(
-    val data: T,
+    val data: T?,
     val loading: Boolean = false,
     val error: OneTimeEvent<Throwable?> = OneTimeEvent(null),
 )
 
 inline fun <T : Any> MutableStateFlow<UiState<T>>.updateState(update: T.() -> T) {
-    update { UiState(update(it.data)) }
+    update { UiState(it.data?.let { it1 -> update(it1) }) }
 }
 
 inline fun <reified T : Any> MutableStateFlow<UiState<T>>.updateStateWith(
@@ -24,9 +24,9 @@ inline fun <reified T : Any> MutableStateFlow<UiState<T>>.updateStateWith(
     scope.launch {
         update { it.copy(loading = true, error = OneTimeEvent(null)) }
 
-        val result = value.data.operation()
+        val result = value.data?.operation()
 
-        if (result.isSuccess) {
+        if (result?.isSuccess == true) {
             val data = result.getOrNull()
             if (data != null) {
                 update { it.copy(data = data, loading = false) }
@@ -43,7 +43,7 @@ inline fun <reified T : Any> MutableStateFlow<UiState<T>>.updateStateWith(
         } else {
             update {
                 it.copy(
-                    error = OneTimeEvent(result.exceptionOrNull()),
+                    error = OneTimeEvent(result?.exceptionOrNull()),
                     loading = false,
                 )
             }
@@ -59,14 +59,14 @@ inline fun <T : Any> MutableStateFlow<UiState<T>>.updateWith(
     scope.launch {
         update { it.copy(loading = true, error = OneTimeEvent(null)) }
 
-        val result = value.data.operation()
+        val result = value.data?.operation()
 
-        if (result.isSuccess) {
+        if (result?.isSuccess == true) {
             update { it.copy(loading = false) }
         } else {
             update {
                 it.copy(
-                    error = OneTimeEvent(result.exceptionOrNull()),
+                    error = OneTimeEvent(result?.exceptionOrNull()),
                     loading = false,
                 )
             }

@@ -8,6 +8,7 @@ object Modules {
         const val model = ":core:model"
         const val network = ":core:network"
         const val utils = ":core:utils"
+        const val ui = ":core:ui"
     }
 
     object di{
@@ -26,7 +27,7 @@ object Modules {
 
     object presentation{
         const val baseFeature = ":presentation:basefeature"
-        const val settings = ":presentation:settingsfeature"
+        const val movies = ":presentation:moviesfeature"
     }
 
     object Feature {

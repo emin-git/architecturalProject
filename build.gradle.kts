@@ -42,7 +42,7 @@ dependencies {
 
     project(":presentation")
     project(":presentation:basefeature")
-    project(":presentation:settingsfeature")
+    project(":presentation:moviesfeature")
 
     project(":testing")
     project(":testing:fake")

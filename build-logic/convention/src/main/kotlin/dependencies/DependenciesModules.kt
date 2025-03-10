@@ -4,6 +4,7 @@ import org.gradle.kotlin.dsl.project
 fun DependencyHandler.moduleCoreCommon() = implementation(project(Modules.Core.common))
 fun DependencyHandler.moduleCoreDatabase() = implementation(project(Modules.Core.database))
 fun DependencyHandler.moduleCoreModel() = implementation(project(Modules.Core.model))
+fun DependencyHandler.moduleCoreUi() = implementation(project(Modules.Core.ui))
 fun DependencyHandler.moduleCoreNetwork() = implementation(project(Modules.Core.network))
 fun DependencyHandler.moduleCoreUtils() = implementation(project(Modules.Core.utils))
 fun DependencyHandler.moduleDiDatabase() = implementation(project(Modules.di.database))
@@ -19,7 +20,7 @@ fun DependencyHandler.moduleTestingHelper() = implementation(project(Modules.tes
 fun DependencyHandler.moduleTestingMock() = implementation(project(Modules.testing.mock))
 fun DependencyHandler.moduleTestingRules() = implementation(project(Modules.testing.rules))
 fun DependencyHandler.modulePresentationBaseFeature() = implementation(project(Modules.presentation.baseFeature))
-fun DependencyHandler.modulePresentationSettingsFeature() = implementation(project(Modules.presentation.settings))
+fun DependencyHandler.modulePresentationMoviesFeature() = implementation(project(Modules.presentation.movies))
 
 
 fun DependencyHandler.moduleCore() {
@@ -28,6 +29,7 @@ fun DependencyHandler.moduleCore() {
     moduleCoreNetwork()
     moduleCoreCommon()
     moduleCoreDatabase()
+    moduleCoreUi()
 }
 
 fun DependencyHandler.moduleDi(){
