@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "953122203761",
+    "project_id": "architecturalproject-22a39",
+    "storage_bucket": "architecturalproject-22a39.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953122203761:android:740d5b53f2bc622368d3d0",
+        "android_client_info": {
+          "package_name": "com.emin.architecturalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkM0-7lGKzsAI0R6U4o_sj-NF-3x0EjiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

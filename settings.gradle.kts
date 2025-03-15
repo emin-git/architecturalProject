@@ -1,3 +1,5 @@
+import java.net.URI
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -26,6 +28,19 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+buildCache {
+    local {
+        isEnabled = true
+    }
+    remote(HttpBuildCache::class.java) {
+        url = URI("http://www.omdbapi.com/")
+        isPush = true
+        isAllowInsecureProtocol = true
+        // https server a baglanmak istediginde isAllowInsecureProtocol bunu kaldır ve url i yenile
+    }
+}
+
 rootProject.name = "ArchitecturalProject"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
@@ -54,4 +69,5 @@ include(":testing:mock")
 include(":testing:rules")
 include(":presentation")
 include(":presentation:basefeature")
-include(":presentation:settingsfeature")
+include(":presentation:moviesfeature")
+include(":core:ui")
