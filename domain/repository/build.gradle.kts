@@ -18,4 +18,5 @@ android {
 dependencies {
     moduleCoreCommon()
     moduleCoreModel()
+    moduleCoreNetwork()
 }

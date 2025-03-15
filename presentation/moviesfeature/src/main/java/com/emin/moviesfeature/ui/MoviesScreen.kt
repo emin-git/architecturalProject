@@ -68,6 +68,7 @@ fun MoviesScreen(viewModel: MoviesViewModel = hiltViewModel()) {
             )
         }
 
+        TextCrash(state.error.peekContent()?.message)// Crashlytics test için aç
 
         if (state.loading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
@@ -121,4 +122,16 @@ fun MovieSearchBar(
             )
         }
     }
+}
+
+@Composable
+fun TextCrash(message:String?){
+    Text(
+        text = message!!,
+        color = MaterialTheme.colorScheme.error,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(14.dp)
+    )
 }

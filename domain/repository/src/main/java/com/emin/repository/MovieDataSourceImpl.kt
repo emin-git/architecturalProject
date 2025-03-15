@@ -1,4 +1,4 @@
-package com.emin.network.data
+package com.emin.repository
 
 import com.emin.common.di.IoDispatcher
 import com.emin.model.dto.MoviesDto
@@ -7,7 +7,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-internal class MovieDataSourceImpl @Inject constructor(
+class MovieDataSourceImpl @Inject constructor(
     private val apiService: ApiService,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : MovieDataSource {

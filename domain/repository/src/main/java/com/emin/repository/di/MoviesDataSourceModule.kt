@@ -1,7 +1,8 @@
-package com.emin.network.di.source
+package com.emin.repository.di
 
-import com.emin.network.data.MovieDataSource
-import com.emin.network.data.MovieDataSourceImpl
+
+import com.emin.repository.MovieDataSource
+import com.emin.repository.MovieDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,7 +15,7 @@ abstract class MoviesDataSourceModule {
 
     @Binds
     @Singleton
-    internal abstract fun bindMoviesSource(
+    abstract fun bindMoviesSource(
         movieDataSourceImpl: MovieDataSourceImpl
     ): MovieDataSource
 }

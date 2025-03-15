@@ -6,7 +6,7 @@ import androidx.annotation.RequiresExtension
 import com.emin.common.utils.Resource
 import com.emin.model.Movie
 import com.emin.model.dto.toMovieList
-import com.emin.network.data.MovieDataSource
+import com.emin.repository.MovieDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

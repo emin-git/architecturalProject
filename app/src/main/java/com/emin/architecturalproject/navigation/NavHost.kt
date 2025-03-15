@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.emin.moviesfeature.navigation.MoviesNavGraph
 import com.emin.moviesfeature.navigation.moviesNavGraph
 import com.emin.moviesfeature.navigation.moviesScreen
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 
 @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @Composable
@@ -20,6 +21,7 @@ fun NavHost() {
     LaunchedEffect(navController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             Log.d("NavigationLogger", "Navigating to: ${destination.route}")
+            FirebaseCrashlytics.getInstance().log("Navigating to: $destination.route")
         }
     }
 

@@ -1,5 +1,6 @@
 package com.emin.network.di.okhttp
 
+import com.emin.network.interceptor.RetryInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +16,7 @@ import javax.inject.Singleton
         InterceptorModule::class,
     ],
 )
+
 @InstallIn(SingletonComponent::class)
 object OkHttpClientModule {
 
@@ -30,6 +32,7 @@ object OkHttpClientModule {
             .readTimeout(TIME_OUT, SECONDS)
             .writeTimeout(TIME_OUT, SECONDS)
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(RetryInterceptor(maxRetryCount = 1))
             .build()
     }
 

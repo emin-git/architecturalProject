@@ -1,4 +1,4 @@
-package com.emin.network.data
+package com.emin.repository
 
 import com.emin.model.dto.MoviesDto
 

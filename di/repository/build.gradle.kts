@@ -16,7 +16,5 @@ android {
 }
 
 dependencies {
-    moduleCoreCommon()
     moduleDomainRepository()
-    moduleCoreNetwork()
 }

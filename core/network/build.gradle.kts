@@ -18,7 +18,6 @@ android {
 dependencies {
     moduleCoreCommon()
     moduleCoreModel()
-    moduleDomainRepository()
     moduleCoreUtils()
     project.let {
         retrofit(it)

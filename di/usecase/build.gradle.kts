@@ -15,4 +15,6 @@ android {
     namespace = "com.emin.di.usecase"
 }
 
-dependencies {}
+dependencies {
+    moduleDomainUseCase()
+}
