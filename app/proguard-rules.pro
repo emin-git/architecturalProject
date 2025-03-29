@@ -19,3 +19,10 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# AutoService için keep kuralı
+-keep class com.google.auto.service.** { *; }
+
+# javax.lang.model sınıfları için keep kuralı
+-keep class javax.lang.model.** { *; }
+-keep class javax.lang.model.util.** { *; }

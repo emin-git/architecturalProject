@@ -85,10 +85,13 @@ android {
 
 dependencies {
     modulePresentationMoviesFeature()
+    moduleDomainUseCase()
     project.let {
+        navigation(it)
         compose(it)
         androidX(it)
         retrofit(it)
         hilt(it)
+        apps(it)
     }
 }

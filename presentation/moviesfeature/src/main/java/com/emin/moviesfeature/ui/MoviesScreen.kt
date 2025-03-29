@@ -68,7 +68,7 @@ fun MoviesScreen(viewModel: MoviesViewModel = hiltViewModel()) {
             )
         }
 
-        TextCrash(state.error.peekContent()?.message)// Crashlytics test için aç
+        //TextCrash(state.error.peekContent()?.message)// Crashlytics test için aç
 
         if (state.loading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))

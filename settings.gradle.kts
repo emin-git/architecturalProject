@@ -41,8 +41,10 @@ buildCache {
     }
 }
 
-rootProject.name = "ArchitecturalProject"
+// build.gradle.kts (Kotlin DSL)
+gradle.startParameter.excludedTaskNames.add(":build-logic:convention:testClasses")
 
+rootProject.name = "ArchitecturalProject"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")

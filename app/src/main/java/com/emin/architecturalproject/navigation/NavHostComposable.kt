@@ -14,7 +14,7 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 
 @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @Composable
-fun NavHost() {
+fun NavHostComposable() {
     val navController = rememberNavController()
     val startDestination = MoviesNavGraph::class
 

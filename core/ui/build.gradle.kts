@@ -5,7 +5,26 @@ plugins {
 }
 
 android {
+    buildFeatures {
+        buildConfig = true
+    }
+    defaultConfig {
+        consumerProguardFiles("consumer-rules.pro")
+    }
     namespace = "com.emin.core.ui"
+    buildTypes {
+        debug {
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("debug")
+        }
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
 }
 
 dependencies {
@@ -17,6 +36,7 @@ dependencies {
         lifecycle(it)
         navigation(it)
         coil(it)
+        apps(it)
     }
     api(libs.lottie)
 }
