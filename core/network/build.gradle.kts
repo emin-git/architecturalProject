@@ -13,6 +13,19 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
     namespace = "com.emin.core.network"
+    buildTypes {
+        debug {
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("debug")
+        }
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
 }
 
 dependencies {
@@ -22,6 +35,7 @@ dependencies {
     project.let {
         retrofit(it)
         http(it)
+        apps(it)
     }
     implementation(platform(libs.okhttp.bom))
 }

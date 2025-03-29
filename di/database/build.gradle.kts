@@ -13,6 +13,23 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
     namespace = "com.emin.di.database"
+    buildTypes {
+        debug {
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("debug")
+        }
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
 }
 
-dependencies {}
+dependencies {
+    project.let {
+        apps(it)
+    }
+}

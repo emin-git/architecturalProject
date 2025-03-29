@@ -111,6 +111,12 @@ pagign = "3.3.5"
 googlePlayMaps = "18.1.0"
 googlePlayLocation = "21.1.0"
 
+# APP
+auto_service = "1.0"
+javax_annotation = "1.3.2"
+javax_lang_model = "9.0.1"
+javax_lang_model_api = "1.0"
+
 # Sdk
 minSdk = "24"
 compileSdk = "35"
@@ -282,3 +288,7 @@ ktor-serialization = { group = "io.ktor", name = "ktor-serialization", version.r
 lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie" }
 androidx-runtime-android = { group = "androidx.compose.runtime", name = "runtime-android", version.ref = "runtimeAndroid" }
 androidx-foundation-layout-android = { group = "androidx.compose.foundation", name = "foundation-layout-android", version.ref = "foundationLayoutAndroid" }
+
+# App
+auto_service = { group = "com.google.auto.service", name = "auto-service", version.ref = "auto_service" }
+javax_annotation = { group = "javax.annotation", name = "javax.annotation-api", version.ref = "javax_annotation" }

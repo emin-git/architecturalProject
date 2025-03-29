@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresExtension
-import com.emin.architecturalproject.navigation.NavHost
+import com.emin.architecturalproject.navigation.NavHostComposable
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +16,7 @@ class MainActivity: ComponentActivity() {
         super.onCreate(savedInstanceState)
         FirebaseCrashlytics.getInstance().isCrashlyticsCollectionEnabled = true
         setContent{
-            NavHost()
+            NavHostComposable()
         }
     }
 }

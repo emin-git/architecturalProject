@@ -13,6 +13,19 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
     namespace = "com.emin.core.database"
+    buildTypes {
+        debug {
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("debug")
+        }
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
 }
 
 dependencies {
@@ -20,6 +33,7 @@ dependencies {
 
     project.let {
         room(it)
+        apps(it)
     }
     ksp(libs.room.compiler)
 }

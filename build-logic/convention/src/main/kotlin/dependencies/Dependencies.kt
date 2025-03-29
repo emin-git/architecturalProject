@@ -22,7 +22,6 @@ fun Project.libs() = extensions.getByType<VersionCatalogsExtension>().named("lib
 
 fun DependencyHandler.compose(project: Project) {
     listOf(
-        "compose-activity",
         "compose-ui",
         "compose-graphics",
         "compose-tooling",
@@ -88,6 +87,13 @@ fun DependencyHandler.http(project: Project) {
     ).forEach { add("implementation", project.libs().findLibrary(it).get()) }
 }
 
+fun DependencyHandler.apps(project: Project) {
+    listOf(
+        "auto_service",
+        "javax_annotation"
+    ).forEach { add("implementation", project.libs().findLibrary(it).get()) }
+}
+
 // Api
 
 fun DependencyHandler.activity(project: Project) {
@@ -111,6 +117,7 @@ fun DependencyHandler.lifecycle(project: Project) {
 
 fun DependencyHandler.navigation(project: Project) {
     listOf(
+        "compose-activity",
         "androidx-navigation-fragment",
         "hilt-navigation-compose",
         "compose-navigation"
