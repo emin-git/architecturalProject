@@ -1,2 +1,4 @@
 java:
-  version: openjdk-21
+  version: 21
+environment:
+  JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
