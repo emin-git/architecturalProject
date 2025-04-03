@@ -16,6 +16,13 @@ plugins {
     alias(libs.plugins.ksp) apply (false)
     alias(libs.plugins.jetbrains.kotlin.jvm) apply false
     alias(libs.plugins.gms) apply (false)
+    id("java")
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }
 
 dependencies {
