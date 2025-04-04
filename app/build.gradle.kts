@@ -85,7 +85,11 @@ android {
 
 dependencies {
     modulePresentationMoviesFeature()
-    moduleDomainUseCase()
+    moduleDomain()
+    moduleCore()
+    moduleDi()
+    modulePresentation()
+    moduleTesting()
     project.let {
         navigation(it)
         compose(it)

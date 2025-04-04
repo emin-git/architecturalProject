@@ -29,9 +29,6 @@ android {
 }
 
 dependencies {
-    moduleCoreCommon()
-    moduleDomainRepository()
-    moduleDomainUseCase()
     project.let {
         apps(it)
     }

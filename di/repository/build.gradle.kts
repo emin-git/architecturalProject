@@ -29,7 +29,6 @@ android {
 }
 
 dependencies {
-    moduleDomainRepository()
     project.let {
         apps(it)
     }

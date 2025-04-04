@@ -15,14 +15,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object MoviesDataSourceModule {
+abstract class MoviesDataSourceModule {
 
-    @Provides
+    @Binds
     @Singleton
-    fun provideMovieDataSource(
-        apiService: ApiService,
-        @IoDispatcher ioDispatcher: CoroutineDispatcher
-    ): MovieDataSource {
-        return MovieDataSourceImpl(apiService, ioDispatcher)
-    }
+    abstract fun bindMovieDataSource(
+        movieDataSourceImpl: MovieDataSourceImpl
+    ): MovieDataSource
 }
+

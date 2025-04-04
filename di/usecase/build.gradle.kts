@@ -29,7 +29,6 @@ android {
 }
 
 dependencies {
-    moduleDomainUseCase()
     project.let {
         apps(it)
     }

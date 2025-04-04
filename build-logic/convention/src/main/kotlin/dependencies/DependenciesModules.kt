@@ -46,6 +46,11 @@ fun DependencyHandler.moduleDomain(){
     moduleDomainUseCase()
 }
 
+fun DependencyHandler.modulePresentation(){
+    modulePresentationBaseFeature()
+    modulePresentationMoviesFeature()
+}
+
 fun DependencyHandler.moduleTesting(){
     moduleTestingFake()
     moduleTestingMock()

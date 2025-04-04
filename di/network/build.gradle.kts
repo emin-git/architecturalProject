@@ -29,9 +29,6 @@ android {
 }
 
 dependencies {
-    moduleCoreNetwork()
-    moduleDomainRepository()
-    moduleDomainUseCase()
     project.let{
         retrofit(it)
         apps(it)

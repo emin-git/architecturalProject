@@ -1,28 +1,25 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
-
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
-
 # AutoService için keep kuralı
 -keep class com.google.auto.service.** { *; }
 
 # javax.lang.model sınıfları için keep kuralı
--keep class javax.lang.model.** { *; }
--keep class javax.lang.model.util.** { *; }
+-keep class **.** { *; }
+
+# Firebase için keep kuralları
+-keep class com.google.firebase.** { *; }
+-keep class com.google.android.gms.** { *; }
+
+# Eksik sınıflar için uyarıları engelle
+-dontwarn javax.lang.model.**
+-dontwarn com.emin.**  # Tüm proje içinde eksik sınıflar için uyarıları engelle
+-dontwarn com.google.**  # Google kütüphaneleri için uyarıları engelle
+-dontwarn com.squareup.**  # Square kütüphaneleri için uyarıları engelle
+-dontwarn javax.tools.**
+-dontwarn sun.reflect.annotation.**
+-dontwarn org.openjdk.tools.javac.**
+
+# Java tools sınıflarını keep et
+-keep class javax.tools.** { *; }
+-keep class sun.reflect.annotation.** { *; }
+-keep class org.openjdk.tools.javac.** { *; }
+-keep class dagger.** { *; }
+-keep class androidx.room.** { *; }
