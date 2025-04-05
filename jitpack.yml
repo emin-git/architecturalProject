@@ -1,8 +1,5 @@
 jdk:
-  - openjdk21
-
-before_install:
-  - echo "Using JDK: $JAVA_HOME"
+  - openjdk17
 
 install:
-  - ./gradlew clean build -x test
+  - ./gradlew build
