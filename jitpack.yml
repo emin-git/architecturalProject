@@ -1,4 +1,8 @@
-java:
-  version: 21
-environment:
-  JAVA_HOME: /opt/homebrew/Cellar/openjdk@21/21.0.6/libexec/openjdk.jdk/Contents/Home
+jdk:
+  - openjdk21
+
+before_install:
+  - echo "Using JDK: $JAVA_HOME"
+
+install:
+  - ./gradlew clean build -x test
