@@ -1,5 +1,8 @@
 jdk:
-  - openjdk17
+  - 21
 
+before_install:
+  - echo "Using Java 21 for build"
+  -
 install:
   - ./gradlew build
