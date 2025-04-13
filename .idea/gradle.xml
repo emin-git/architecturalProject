@@ -44,6 +44,7 @@
             <option value="$PROJECT_DIR$/domain/usecase" />
             <option value="$PROJECT_DIR$/presentation" />
             <option value="$PROJECT_DIR$/presentation/basefeature" />
+            <option value="$PROJECT_DIR$/presentation/homefeature" />
             <option value="$PROJECT_DIR$/presentation/moviesfeature" />
             <option value="$PROJECT_DIR$/testing" />
             <option value="$PROJECT_DIR$/testing/fake" />

@@ -21,6 +21,7 @@ fun DependencyHandler.moduleTestingMock() = implementation(project(Modules.testi
 fun DependencyHandler.moduleTestingRules() = implementation(project(Modules.testing.rules))
 fun DependencyHandler.modulePresentationBaseFeature() = implementation(project(Modules.presentation.baseFeature))
 fun DependencyHandler.modulePresentationMoviesFeature() = implementation(project(Modules.presentation.movies))
+fun DependencyHandler.modulePresentationHomeFeature() = implementation(project(Modules.presentation.home))
 
 
 fun DependencyHandler.moduleCore() {
@@ -49,6 +50,7 @@ fun DependencyHandler.moduleDomain(){
 fun DependencyHandler.modulePresentation(){
     modulePresentationBaseFeature()
     modulePresentationMoviesFeature()
+    modulePresentationHomeFeature()
 }
 
 fun DependencyHandler.moduleTesting(){

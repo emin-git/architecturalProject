@@ -49,6 +49,7 @@ dependencies {
 
     project(":presentation")
     project(":presentation:basefeature")
+    project(":presentation:homefeature")
     project(":presentation:moviesfeature")
 
     project(":testing")
@@ -56,4 +57,6 @@ dependencies {
     project(":testing:helper")
     project(":testing:mock")
     project(":testing:rules")
+    implementation("com.github.emin-git:SuperMusic:v1.0.2")
+
 }

@@ -84,7 +84,7 @@ android {
 }
 
 dependencies {
-    modulePresentationMoviesFeature()
+
     moduleDomain()
     moduleCore()
     moduleDi()
@@ -98,4 +98,6 @@ dependencies {
         hilt(it)
         apps(it)
     }
+    implementation("com.github.emin-git:SuperMusic:v1.0.2")
+
 }

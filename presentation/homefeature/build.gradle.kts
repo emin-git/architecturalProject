@@ -13,7 +13,7 @@ android {
         consumerProguardFiles("consumer-rules.pro")
         minSdk = defaultConfig.minSdk
     }
-    namespace = "com.emin.presentation.moviesfeature"
+    namespace = "com.emin.presentation.homefeature"
     packagingOptions {
         resources.excludes.add("META-INF/gradle/incremental.annotation.processors")
     }
@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":presentation:moviesfeature"))
     project.let {
         compose(it)
         hilt(it)

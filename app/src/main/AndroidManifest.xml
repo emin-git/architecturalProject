@@ -15,6 +15,7 @@
         android:theme="@style/Theme.AppCompat"
         android:usesCleartextTraffic="true"
         tools:targetApi="tiramisu"
+        tools:replace="android:theme"
         tools:ignore="MissingClass">
 
         <profileable

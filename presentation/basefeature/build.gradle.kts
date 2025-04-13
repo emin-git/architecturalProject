@@ -3,6 +3,7 @@
 plugins {
     alias(libs.plugins.plugin.ui.library)
     alias(libs.plugins.plugin.hilt)
+    kotlin("android")
 }
 
 android {
@@ -11,6 +12,7 @@ android {
     }
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
+        minSdk = defaultConfig.minSdk
     }
     namespace = "com.emin.presentation.basefeature"
     packagingOptions {

@@ -1,3 +1,4 @@
+import android.content.Intent
 import android.os.Build
 import androidx.annotation.RequiresExtension
 import androidx.compose.foundation.background
@@ -14,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
@@ -23,11 +25,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.emin.basefeature.MovieListRow
 import com.emin.moviesfeature.viewmodel.MoviesEvent
 import com.emin.moviesfeature.viewmodel.MoviesViewModel
+import com.emin.supermusic.Greeting
 
 @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @Composable
 fun MoviesScreen(viewModel: MoviesViewModel = hiltViewModel()) {
     val state by viewModel.moviesUiState.collectAsStateWithLifecycle()
+    var showGreeting by remember { mutableStateOf(false) }
+    val context = LocalContext.current
 
     Box(
         modifier = Modifier
@@ -74,7 +79,9 @@ fun MoviesScreen(viewModel: MoviesViewModel = hiltViewModel()) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
     }
-
+    if (showGreeting) {
+        Greeting(name = "Tıklandı!")
+    }
 }
 
 @Composable

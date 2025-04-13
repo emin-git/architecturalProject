@@ -28,6 +28,7 @@ object Modules {
     object presentation{
         const val baseFeature = ":presentation:basefeature"
         const val movies = ":presentation:moviesfeature"
+        const val home = ":presentation:homefeature"
     }
 
     object Feature {
